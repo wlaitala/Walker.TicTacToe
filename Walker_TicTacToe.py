@@ -31,7 +31,10 @@ def moves(board):                                           #defines the moves f
         if len(x_input) != 3:                               #if it has more than 3 characters, it is invalid
             print("invalid input, try again")
             xcorrect()
-        elif x_input[1] != ",":                               #If the second character is not a , it is invalid
+        elif " " in x_input:                                #If there is a " ", invalid
+            print("invalid input, try again")
+            xcorrect()
+        elif x_input[1] != ",":                             #If the second character is not a , it is invalid
             print("invalid input, try again")
             xcorrect()
         elif int(x_input[0]) - 1 not in range(0,3):         #if the first character is not 0 1 or 2 then invalid
@@ -42,8 +45,8 @@ def moves(board):                                           #defines the moves f
             xcorrect()
         rowinput = int(x_input.split(',')[0]) - 1           #rowinput = integer, 2, is the first number the user inputs
         colinput = int(x_input.split(',')[1]) - 1           #colinput = integer, 3, is the second number the user inputs
-        if board[rowinput][colinput] != "-":              #if the space is open the it will put a character there
-            print("invalid input, try again")
+        if board[rowinput][colinput] != "-":                #if the space is open the it will put a character there
+            print("this spot has been taken, try again")
             xcorrect()
         return(x_input)
     xreturn = xcorrect()                                    #run the function
